@@ -5,6 +5,7 @@ import { Boxes } from './ui/background-boxes'
 import { useRouter } from 'next/navigation'
 import { useDebounce } from 'use-debounce'
 import { Players } from './Players'
+import { Spotlight } from './ui/spotlight'
 
 const Hero = () => {
   const router = useRouter();
@@ -35,6 +36,10 @@ const Hero = () => {
     <>
     <div className="w-full relative flex flex-col items-center justify-start antialiased overflow-hidden">
     <div className="max-w-2xl mx-auto p-4 my-20">
+    <Spotlight
+        className="-top-40 right-0 md:right-60 md:-top-20"
+        fill="white"
+      />
       <h1 className="relative z-10 text-lg md:text-7xl  bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600  text-center font-sans font-bold">
        Player <span className='text-blue-500'>Statistics</span> 
       </h1>
@@ -48,7 +53,6 @@ const Hero = () => {
       <PlaceholdersAndVanishInput placeholders={placeholders} onChange={handleChange} />
     </div>
     <Players/>
-    <Boxes className='opacity-50'/>
   </div>
     </>
   )

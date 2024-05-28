@@ -17,7 +17,7 @@ const Navbar = () => {
         <div className=" block w-auto" id="navbar-default">
           <Link
             href={"/login"}
-            className="shadow-[inset_0_0_0_2px_#616467] text-black px-4 py-2 rounded-md tracking-widest uppercase font-bold bg-transparent hover:bg-[#616467] hover:text-white dark:text-neutral-200 transition duration-200"
+            className="shadow-[inset_0_0_0_2px_#616467] text-black px-4 py-2 rounded-md tracking-widest uppercase font-bold bg-transparent hover:bg-[#616467] hover:text-white dark:text-neutral-200 transition duration-200 text-sm"
           >
             Login
           </Link>

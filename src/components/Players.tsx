@@ -1,26 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { HoverEffect } from "@/components/ui/card-hover-effect";
 import HorizontalDivider from "./partials/HorizontalDivider";
-import { Player } from "@/types/Player";
+import { Faculty, Player, PlayerRole } from "@/types/Player";
 import { useSearchParams } from "next/navigation";
 
-// Function to sort and group projects by their starting letter
 const groupProjectsByAlphabet = (
   projects: Player[],
   search: string
 ): Record<string, Player[]> => {
-  let sortedProjects = projects.sort((a, b) => a.title.localeCompare(b.title));
+  let sortedProjects = projects.sort((a, b) => a.name.localeCompare(b.name));
 
   if (search) {
     sortedProjects = sortedProjects.filter((p) =>
-      p.title.toLowerCase().includes(search.toLowerCase())
+      p.name.toLowerCase().includes(search.toLowerCase())
     );
   }
 
   const groupedProjects: Record<string, Player[]> = {};
 
   sortedProjects.forEach((project: Player) => {
-    const firstLetter = project.title[0].toUpperCase();
+    const firstLetter = project.name[0].toUpperCase();
     if (!groupedProjects[firstLetter]) {
       groupedProjects[firstLetter] = [];
     }
@@ -61,75 +60,87 @@ export function Players() {
 }
 export const projects: Player[] = [
   {
-    title: "Stripe",
-    description:
-      "A technology company that builds economic infrastructure for the internet.",
-    link: "https://stripe.com",
+    profile: "/krantikari.jpg", 
+    name: "Stripe",
+    faculty: Faculty.BEI,
+    slug: "https://stripe.com",
+    role: PlayerRole.BATSMAN,
   },
   {
-    title: "Netflix",
-    description:
-      "A streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.",
-    link: "https://netflix.com",
+    profile: "/krantikari.jpg", 
+    name: "Netflix",
+    faculty: Faculty.BEI,
+    slug: "https://netflix.com",
+    role: PlayerRole.BATSMAN,
   },
   {
-    title: "Google",
-    description:
-      "A multinational technology company that specializes in Internet-related services and products.",
-    link: "https://google.com",
+    profile: "/krantikari.jpg", 
+    name: "Google",
+    faculty: Faculty.BEI,
+    slug: "https://google.com",
+    role: PlayerRole.BATSMAN,
   },
   {
-    title: "Meta",
-    description:
-      "A technology company that focuses on building products that advance Facebook's mission of bringing the world closer together.",
-    link: "https://meta.com",
+    profile: "/krantikari.jpg", 
+    name: "Meta",
+    faculty: Faculty.BEI,
+    slug: "https://meta.com",
+    role: PlayerRole.BATSMAN,
   },
   {
-    title: "Amazon",
-    description:
-      "A multinational technology company focusing on e-commerce, cloud computing, digital streaming, and artificial intelligence.",
-    link: "https://amazon.com",
+    profile: "/krantikari.jpg", 
+    name: "Amazon",
+    faculty: Faculty.BEI,
+    slug: "https://amazon.com",
+    role: PlayerRole.BATSMAN,
   },
   {
-    title: "Microsoft",
-    description:
-      "A multinational technology company that develops, manufactures, licenses, supports, and sells computer software, consumer electronics, personal computers, and related services.",
-    link: "https://microsoft.com",
+    profile: "/krantikari.jpg", 
+    name: "Microsoft",
+    faculty: Faculty.BEI,
+    slug: "https://microsoft.com",
+    role: PlayerRole.BATSMAN,
   },
   {
-    title: "Stripe",
-    description:
-      "A technology company that builds economic infrastructure for the internet.",
-    link: "https://stripe.com",
+    profile: "/krantikari.jpg", 
+    name: "Stripe",
+    faculty: Faculty.BEI,
+    slug: "https://stripe.com",
+    role: PlayerRole.BATSMAN,
   },
   {
-    title: "Netflix",
-    description:
-      "A streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.",
-    link: "https://netflix.com",
+    profile: "/krantikari.jpg", 
+    name: "Netflix",
+    faculty: Faculty.BEI,
+    slug: "https://netflix.com",
+    role: PlayerRole.BATSMAN,
   },
   {
-    title: "Google",
-    description:
-      "A multinational technology company that specializes in Internet-related services and products.",
-    link: "https://google.com",
+    profile: "/krantikari.jpg", 
+    name: "Google",
+    faculty: Faculty.BEI,
+    slug: "https://google.com",
+    role: PlayerRole.BATSMAN,
   },
   {
-    title: "Meta",
-    description:
-      "A technology company that focuses on building products that advance Facebook's mission of bringing the world closer together.",
-    link: "https://meta.com",
+    profile: "/krantikari.jpg", 
+    name: "Meta",
+    faculty: Faculty.BEI,
+    slug: "https://meta.com",
+    role: PlayerRole.BATSMAN,
   },
   {
-    title: "Amazon",
-    description:
-      "A multinational technology company focusing on e-commerce, cloud computing, digital streaming, and artificial intelligence.",
-    link: "https://amazon.com",
+    profile: "/krantikari.jpg", 
+    name: "Amazon",
+    faculty: Faculty.BEI,
+    slug: "https://amazon.com",
+    role: PlayerRole.BATSMAN,
   },
   {
-    title: "Microsoft",
-    description:
-      "A multinational technology company that develops, manufactures, licenses, supports, and sells computer software, consumer electronics, personal computers, and related services.",
-    link: "https://microsoft.com",
+    profile: "/krantikari.jpg", 
+    name: "Microsoft",
+    faculty: Faculty.BEI,
+    slug: "https://microsoft.com",
+    role: PlayerRole.BATSMAN,
   },
 ];

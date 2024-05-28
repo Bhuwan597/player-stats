@@ -1,5 +1,7 @@
+import { Player } from "@/types/Player";
 import { cn } from "@/utils/cn";
 import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -7,26 +9,22 @@ export const HoverEffect = ({
   items,
   className,
 }: {
-  items: {
-    title: string;
-    description: string;
-    link: string;
-}[];
-className?: string;
+  items: Player[];
+  className?: string;
 }) => {
-    let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-    
-    return (
-        <div
-        className={cn(
-            "grid grid-cols-2 md:grid-cols-3  lg:grid-cols-4  py-5",
-            className
-        )}
-        >
+  let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+  return (
+    <div
+      className={cn(
+        "grid grid-cols-2 md:grid-cols-3  lg:grid-cols-4  py-5",
+        className
+      )}
+    >
       {items.map((item, idx) => (
         <Link
-          href={item?.link}
-          key={item?.link}
+          href={item?.slug}
+          key={item?.slug}
           className="relative group  block p-2 h-full w-full"
           onMouseEnter={() => setHoveredIndex(idx)}
           onMouseLeave={() => setHoveredIndex(null)}
@@ -49,8 +47,9 @@ className?: string;
             )}
           </AnimatePresence>
           <Card>
-            <CardTitle>{item.title}</CardTitle>
-            <CardDescription>{item.description}</CardDescription>
+            <CardImage src={item.profile}/>
+            <CardTitle>{item.name}</CardTitle>
+            <CardDescription>{item.faculty}</CardDescription>
           </Card>
         </Link>
       ))}
@@ -66,7 +65,7 @@ export const Card = ({
   children: React.ReactNode;
 }) => {
   return (
-      <div
+    <div
       className={cn(
         "rounded-2xl h-full w-full p-4 overflow-hidden dark:bg-black border border-dark dark:border-white/[0.2] group-hover:border-slate-700 relative z-20",
         className
@@ -86,7 +85,12 @@ export const CardTitle = ({
   children: React.ReactNode;
 }) => {
   return (
-    <h4 className={cn("text-neutral-950 dark:text-zinc-100 font-bold tracking-wide mt-4", className)}>
+    <h4
+      className={cn(
+        "text-neutral-950 dark:text-zinc-100 font-bold tracking-wide mt-4",
+        className
+      )}
+    >
       {children}
     </h4>
   );
@@ -101,11 +105,23 @@ export const CardDescription = ({
   return (
     <p
       className={cn(
-        "mt-8 text-neutral-700 dark:text-zinc-400 tracking-wide leading-relaxed text-sm",
+        "text-neutral-700 dark:text-zinc-400 tracking-wide leading-relaxed text-md uppercase",
         className
       )}
     >
       {children}
     </p>
   );
+};
+
+export const CardImage = ({
+  className,
+  src,
+}: {
+  className?: string;
+  src: string;
+}) => {
+  return (
+    <Image src={src} width={200} height={200} className={cn("w-full object-cover rounded-md", className)} alt="player profile" />
+  )
 };

@@ -7,8 +7,8 @@ const Footer = () => {
   const words = `Bhuwan Acharya Upadhyaya | ${year}`;
   return (
     <div className="min-h-32 px-4 flex flex-col items-start justify-center">
-      <div className="w-full flex flex-row items-center justify-between">
-        <TextGenerateEffect words={words} />
+      <div className="w-full flex flex-row items-center justify-between md:px-20">
+        <p className="no-underline group cursor-pointer relative shadow-2xl shadow-zinc-900 rounded-full p-px text-sm md:text-lg lg:text-xl font-semibold leading-6  text-white inline-block">Bhuwan Acharya Upadhyaya</p>
         <Link href={"https://facebook.com/bhuwanacharya.998"} target="_main" className="bg-slate-800 no-underline group cursor-pointer relative shadow-2xl shadow-zinc-900 rounded-full p-px text-xs font-semibold leading-6  text-white inline-block">
           <span className="absolute inset-0 overflow-hidden rounded-full">
             <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
