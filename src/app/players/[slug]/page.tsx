@@ -5,7 +5,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import React from "react";
 
-export async function getPlayer(slug: string) {
+async function getPlayer(slug: string) {
   try {
     const res = await fetch(`${process.env.BASE_URL}/api/players/${slug}`);
     const data = await res.json();
@@ -17,7 +17,7 @@ export async function getPlayer(slug: string) {
     return null;
   }
 }
-const Page = async ({ params }: { params: { slug: string } }) => {
+export default async function Page({ params }: { params: { slug: string } }) {
   const slug = params.slug;
   const player = await getPlayer(slug);
   if (!player) return notFound();
@@ -183,5 +183,3 @@ const Page = async ({ params }: { params: { slug: string } }) => {
     </div>
   );
 };
-
-export default Page;
