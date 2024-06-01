@@ -23,7 +23,7 @@ export const HoverEffect = ({
     >
       {items.map((item, idx) => (
         <Link
-          href={item?.slug}
+          href={`players/${item?.slug}`}
           key={item?.slug}
           className="relative group  block p-2 h-full w-full"
           onMouseEnter={() => setHoveredIndex(idx)}
@@ -47,7 +47,7 @@ export const HoverEffect = ({
             )}
           </AnimatePresence>
           <Card>
-            <CardImage src={item.profile}/>
+            {/* <CardImage src={item.profile}/> */}
             <CardTitle>{item.name}</CardTitle>
             <CardDescription>{item.faculty}</CardDescription>
           </Card>
@@ -67,7 +67,7 @@ export const Card = ({
   return (
     <div
       className={cn(
-        "rounded-2xl h-full w-full p-4 overflow-hidden dark:bg-black border border-dark dark:border-white/[0.2] group-hover:border-slate-700 relative z-20",
+        "rounded-2xl h-full w-full p-4 overflow-hidden bg-slate-200 dark:bg-black border border-dark dark:border-white/[0.2] group-hover:border-slate-700 relative z-20",
         className
       )}
     >
