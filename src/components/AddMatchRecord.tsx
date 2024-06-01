@@ -233,7 +233,7 @@ const AddMatchRecordForm = () => {
       <h2 className="text-center mb-2 text-xl font-bold">Add match record</h2>
       <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
         <div className="mb-4 flex flex-col gap-2">
-          <label htmlFor="player">Player's Name:</label>
+          <label htmlFor="player">Player&apos;s Name:</label>
           <RSelect
             isSearchable
             required
