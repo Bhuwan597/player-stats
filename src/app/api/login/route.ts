@@ -46,7 +46,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
       );
     }
     const { password: userPassword, ...userWithoutPassword } = user.toObject();
-    const secret = new TextEncoder().encode(process.env.JWT_SECRET);
+    const secret = process.env.JWT_SECRET as string;
     const access_token = jwt.sign({ id: user._id }, secret, {
       expiresIn: process.env.JWT_EXPIRES,
     });
