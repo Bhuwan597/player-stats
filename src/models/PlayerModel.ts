@@ -9,7 +9,6 @@ const PlayerSchema = new Schema(
     name: { type: String, required: true },
     faculty: { type: String, enum: Object.values(Faculty), required: true },
     role: { type: String, enum: Object.values(PlayerRole), required: true },
-    profile: { type: String, required: true },
     slug: { type: String, slug: ["name", "faculty"] },
   },
   { timestamps: true }

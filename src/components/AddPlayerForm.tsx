@@ -2,9 +2,7 @@
 import React, { useState } from "react";
 import { Button, Input, Select, SelectItem } from "@nextui-org/react";
 import {
-  AssignmentInd,
   Face,
-  Face2,
   School,
   Sports,
   SportsCricket,
@@ -29,11 +27,10 @@ const AddPlayerForm = () => {
     { value: "bowler", label: "Bowler" },
     { value: "all_rounder", label: "All-Rounder" },
   ];
-  const [formData, setFormData] = useState<Player>({
+  const [formData, setFormData] = useState<{name: string, faculty:string, role:string}>({
     name: "",
     faculty: "",
     role: "",
-    profile: "",
   });
 
   const [loading, setLoading] = useState<boolean>(false)
@@ -56,7 +53,6 @@ const AddPlayerForm = () => {
         name: "",
         faculty: "",
         role: "",
-        profile: "",
       })
       toast.success(data.message)
     } catch (error: any) {
@@ -70,16 +66,6 @@ const AddPlayerForm = () => {
       <h2 className="text-center mb-2 text-xl font-bold">Add cricket player</h2>
       <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
         <div className="mb-4">
-          {formData.profile && (
-            <div className="mt-4 flex w-full items-center justify-center">
-              <img
-                alt="player profile image preview"
-                width={200}
-                height={200}
-                src={formData.profile}
-              />
-            </div>
-          )}
         </div>
         <div className="mb-4">
           <label htmlFor="faculty">Name:</label>
@@ -150,20 +136,6 @@ const AddPlayerForm = () => {
               All Rounder
             </SelectItem>
           </Select>
-        </div>
-        <div className="mb-4">
-          <label htmlFor="profile">Profile Photo:</label>
-          <Input
-            startContent={<AddPhotoAlternate />}
-            required
-            placeholder="profile url"
-            type="text"
-            value={formData.profile}
-            variant="bordered"
-            onChange={(e) =>
-              setFormData({ ...formData, profile: e.target.value })
-            }
-          />
         </div>
         <Button isLoading={loading} type="submit" color="primary">
           Add Player

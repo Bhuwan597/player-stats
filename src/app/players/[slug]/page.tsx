@@ -31,13 +31,6 @@ export default async function Page({ params }: { params: { slug: string } }) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 place-content-center divide-y md:divide-x divide-gray-600">
           <div className="flex flex-col items-center md:flex-row md:items-start ">
             <div className="flex-shrink-0 w-full flex flex-col items-start justify-center">
-              <Image
-                src={"/krantikari.jpg"}
-                width={200}
-                height={200}
-                alt="Player Profile"
-                className="object-cover rounded-[50%] mb-4 md:mb-0 md:mr-4 border-4 border-gray-200 dark:border-gray-600"
-              />
             <div className="flex-grow mt-4">
               <div className="mb-4">
                 <h2 className="text-xl font-semibold text-gray-800 dark:text-white">

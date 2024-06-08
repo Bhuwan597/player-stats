@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { Meteors } from "./meteors";
 
 export const HoverEffect = ({
   items,
@@ -72,6 +73,7 @@ export const Card = ({
       )}
     >
       <div className="relative z-30">
+      <Meteors number={10} />
         <div className="p-4">{children}</div>
       </div>
     </div>

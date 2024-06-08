@@ -18,7 +18,6 @@ export interface Player {
   role: PlayerRole;
   faculty: Faculty;
   slug: string;
-  profile: string;
 }
 
 export interface BattingRecord {

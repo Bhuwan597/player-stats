@@ -182,6 +182,7 @@ const AddMatchRecordForm = () => {
           <Input
             startContent={<SportsBaseballIcon />}
             min={"0"}
+            step={"0.1"}
             required
             type="number"
             placeholder="type overs bowled by player"

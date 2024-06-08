@@ -4,6 +4,7 @@ import { NextUIProvider } from "@nextui-org/react";
 import { ToastContainer, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { PlayersProvider } from "@/contexts/PlayerContext";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "PlayerStats",
@@ -17,8 +18,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className="dark:bg-neutral-950 dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative">
-        <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+      <body className="dark:bg-neutral-950 bg-white  dark:bg-dot-white/[0.2] bg-dot-black/[0.2] relative">
+      <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
         <NextUIProvider>
           <PlayersProvider>
             <ToastContainer
@@ -34,7 +35,9 @@ export default function RootLayout({
               theme="dark"
               transition={Bounce}
             />
-            {children}
+            <Suspense>
+              {children}
+            </Suspense>
           </PlayersProvider>
         </NextUIProvider>
       </body>
