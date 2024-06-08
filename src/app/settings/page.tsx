@@ -3,7 +3,7 @@ import AddMatchRecordForm from '@/components/AddMatchRecord'
 import AddPlayerForm from '@/components/AddPlayerForm'
 import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownTrigger, Navbar, NavbarBrand, NavbarContent, NavbarItem } from '@nextui-org/react'
 import MenuIcon from '@mui/icons-material/Menu';
-import React, { Suspense, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 
@@ -21,7 +21,7 @@ const Page = () => {
   }, [searchparams])
   
   return (
-    <Suspense>
+    <>
     <div className="flex flex-col items-center justify-start gap-10 min-h-screen">
     <Navbar>
       <NavbarBrand>
@@ -47,7 +47,7 @@ const Page = () => {
     </Navbar>
     {option === "player" ? <AddPlayerForm/> : (option === "record") ?  <AddMatchRecordForm/> : "Select the option"}
     </div>
-    </Suspense>
+    </>
   )
 }
 
