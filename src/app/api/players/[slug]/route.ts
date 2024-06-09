@@ -1,6 +1,7 @@
 import Record from "@/models/MatchRecordModel";
 import Player from "@/models/PlayerModel";
 import { MatchRecord } from "@/types/Player";
+import connect from "@/utils/db_connect";
 import { NextRequest, NextResponse } from "next/server";
 
 interface Params {
@@ -8,6 +9,7 @@ interface Params {
 }
 export async function GET(req: NextRequest, { params }: { params: Params }) {
   try {
+    await connect();
     const slug = params.slug;
     const player = await Player.findOne({
       slug,
